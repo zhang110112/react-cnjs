@@ -1,8 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Router from './router';
 import registerServiceWorker from './registerServiceWorker';
+import store from './store';
+import { Provider } from 'mobx-react';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider {...store}>
+    <Router />
+  </Provider>
+, document.getElementById('root'));
+
 registerServiceWorker();
